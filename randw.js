@@ -22,6 +22,7 @@ rl.question("Input file: ", function (filename) {
                          return;
                     }
                     console.log("It worked");
+                    rl.close();
                });
 
           });

@@ -15,5 +15,6 @@ rl.question('Enter a domain name: ', function(domain){
                return;
           }
           console.log(domain + "'s IP address is " + ipAddress);
+          rl.close();
      });
 });

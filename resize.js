@@ -1,6 +1,5 @@
 var fs = require('fs');
-var readline = require('readline');
-var request = require('request');
+var gm = require('gm');
 
 // sets up read lines
 var rl = readline.createInterface({
@@ -9,9 +8,11 @@ var rl = readline.createInterface({
 });
 
 //asks for url
-     rl.question("URL:", function (url){
+     rl.question("image url:", function (url){
           // asks file to save to
-          rl.question("Save to file: ", function (page) {
+     gm(url)
+          rl.question("Width and Height: ", function (width, height) {
+               .resize(width, height)
                // fetches data from page
                request.get(url,function(err,resp,pagecontent){
                     // writes data to save to file
@@ -21,7 +22,6 @@ var rl = readline.createInterface({
                               return;
                          }
                          console.log("Saved to file: " + page);
-                         rl.close();
                     });
           });
      });
